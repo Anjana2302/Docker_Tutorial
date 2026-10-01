@@ -1,7 +1,8 @@
-version: '3.6'
 services:
   backend:
-    build: backend
+    build:
+      context: .
+      dockerfile: Dockerfile-backend
     hostname: backend-host
     volumes:
       - ./backend:/app
@@ -11,7 +12,9 @@ services:
       - docker-tutorial-network
 
   frontend:
-    build: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile-frontend
     hostname: frontend-host
     volumes:
       - ./frontend:/app
